@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7e351c" />
+    <meta
+      name="description"
+      content="A resort television connect-my-device instruction screen."
+    />
+    <title>Connect My Device</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/connect-device.css" />
+    <script src="../assets/js/connect-device.js" defer></script>
+  </head>
+  <body>
+    <main class="connect-screen">
+      <header class="connect-resort-bar" aria-label="Resort and room information">
+        <a class="connect-resort-name" href="../index.html" aria-label="Return to welcome screen">
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </a>
+        <p class="connect-room">Room <span data-room>516</span></p>
+      </header>
+
+      <section class="connect-title-bar" aria-label="Current section">
+        <svg class="connect-cast-icon" viewBox="0 0 64 58" aria-hidden="true">
+          <path d="M11 42a5 5 0 0 1 5 5" />
+          <path d="M11 34a13 13 0 0 1 13 13" />
+          <path d="M11 26a21 21 0 0 1 21 21" />
+          <path d="M11 18v-6h43v35H40" />
+        </svg>
+        <h1>Connect My Device</h1>
+      </section>
+
+      <section class="connect-content" aria-label="Device connection instructions">
+        <h2>Connect your mobile devices to enjoy Chromecast®-enabled content in room.</h2>
+
+        <div class="connect-layout">
+          <div class="device-showcase">
+            <img
+              src="../assets/images/connect-device-showcase.png"
+              alt="A movie casting from a phone and tablet to a television"
+            />
+          </div>
+
+          <div class="steps-panel">
+            <div class="step-row step-row-one">
+              <span class="step-label">Step</span>
+              <span class="step-number">1</span>
+              <p>Join <strong>WDW Resorts Guest Wi-Fi</strong> on your device</p>
+            </div>
+
+            <div class="step-row step-row-two">
+              <span class="step-label">Step</span>
+              <span class="step-number">2</span>
+              <div class="visit-box">
+                <p>On your device visit<br /><strong>Disney.GetStreaming.TV</strong><br />and enter:</p>
+                <strong class="pairing-code">442 397 950</strong>
+              </div>
+              <span class="or-badge">or</span>
+              <div class="qr-box">
+                <p>Scan code with your<br />device’s camera:</p>
+                <img class="qr-code" src="../assets/images/connect-device-qr.svg" alt="QR code" />
+              </div>
+            </div>
+
+            <div class="step-row step-row-three">
+              <span class="step-label">Step</span>
+              <span class="step-number">3</span>
+              <p>Open a Chromecast®-enabled app and tap the Cast button</p>
+            </div>
+
+            <p class="help-copy">
+              Trouble connecting? Visit our <strong>Help Screen</strong> for more information.
+            </p>
+          </div>
+        </div>
+
+        <div class="plus-panel">
+          <div class="plus-logo">Disney+</div>
+          <p>
+            Have a Disney+ subscription? Stream all your favorites on this TV by casting
+            Disney+ from your mobile device.
+          </p>
+        </div>
+
+        <p class="legal-copy">
+          Use of the Chromecast® Device is pursuant to Google’s Terms of Service and Privacy Policy.
+          Some content may require a subscription.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

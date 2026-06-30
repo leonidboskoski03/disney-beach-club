@@ -1,0 +1,831 @@
+:root {
+  --teal: #047989;
+  --teal-deep: #006b79;
+  --cream: #f7f1d8;
+  --walnut: #573318;
+  --walnut-deep: #351f0f;
+  --sand: #e5d8ad;
+  --sand-light: #f3e8c2;
+  --gold: #b69b38;
+  --active: #007c92;
+  --nav-brown: #542b0c;
+  --sans: "Montserrat", "Trebuchet MS", sans-serif;
+  --serif: "Cinzel", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background: #16100b;
+}
+
+body {
+  color: var(--cream);
+  font-family: var(--sans);
+}
+
+body.is-started .start-overlay {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.start-overlay {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 13dvh minmax(0, 1fr) 24dvh;
+  overflow: hidden;
+  color: #26344a;
+  background: #f4f7fb;
+  cursor: pointer;
+  transition: opacity 780ms ease, visibility 780ms ease;
+}
+
+.start-header {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  background: var(--teal);
+  isolation: isolate;
+}
+
+.start-header::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  opacity: 0.52;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.07) 0 1px, transparent 1px 4px, rgb(0 51 59 / 0.08) 4px 5px),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgb(0 42 49 / 0.07) 5px 6px, rgb(255 255 255 / 0.035) 6px 7px),
+    radial-gradient(ellipse at 50% 0%, rgb(28 159 170 / 0.24), transparent 60%);
+  mix-blend-mode: soft-light;
+}
+
+.start-resort-name {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.42rem, 0.7vw, 0.8rem);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.28);
+}
+
+.start-resort-name span {
+  font-size: clamp(0.64rem, 0.9vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+.start-resort-name strong {
+  font-family: var(--serif);
+  font-size: clamp(1.08rem, 1.58vw, 1.95rem);
+  line-height: 1;
+  letter-spacing: 0.035em;
+}
+
+.birthday-resort-name {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 0.8vw, 0.9rem);
+  color: #f7f1d8;
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.34);
+}
+
+.birthday-resort-name svg {
+  width: clamp(2.1rem, 3vw, 3.6rem);
+  height: clamp(2.1rem, 3vw, 3.6rem);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.birthday-resort-copy {
+  display: grid;
+  justify-items: start;
+}
+
+.birthday-resort-copy strong {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.55vw, 1.85rem);
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.birthday-resort-copy small {
+  margin-top: 0.3em;
+  font-size: clamp(0.34rem, 0.5vw, 0.62rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.start-welcome {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-height: 0;
+  color: #272a36;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgb(229 238 255 / 0.76), transparent 52%),
+    linear-gradient(180deg, #fbfdff, #eff4fb);
+  text-align: center;
+}
+
+.start-welcome p,
+.start-welcome h1 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.start-welcome p {
+  margin-bottom: clamp(0.65rem, 1.8dvh, 1.2rem);
+  font-size: clamp(1.2rem, 2.15vw, 2.65rem);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+}
+
+.start-welcome h1 {
+  margin-bottom: clamp(1.4rem, 3.8dvh, 3rem);
+  font-size: clamp(2.1rem, 4vw, 5.1rem);
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.start-member-badge {
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.18rem, 0.45dvh, 0.35rem);
+}
+
+.start-member-emblem {
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.18rem, 0.45dvh, 0.35rem);
+}
+
+.start-member-emblem img {
+  width: clamp(4.2rem, 7.2vw, 8.8rem);
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.start-member-badge .birthday-cake-mark {
+  width: clamp(3.8rem, 5.6vw, 6.8rem);
+  height: auto;
+}
+
+.is-birthday .start-welcome p,
+.is-birthday .start-welcome h1 {
+  color: #b65321;
+}
+
+.is-birthday .start-header {
+  background: #5b2a13 url("../images/main-guest-wood.png") center / cover no-repeat;
+}
+
+.is-birthday .start-header::before {
+  opacity: 0.36;
+  background:
+    linear-gradient(180deg, rgb(95 42 13 / 0.04), rgb(24 9 3 / 0.34)),
+    linear-gradient(90deg, rgb(28 10 3 / 0.26), transparent 18% 82%, rgb(28 10 3 / 0.22));
+  mix-blend-mode: multiply;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.start-member-badge span,
+.member-badge span {
+  color: currentColor;
+  font-size: clamp(0.48rem, 0.64vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.start-footer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #f7efe3;
+  background: #7b382f url("../images/start-wood-planks.png") center / cover no-repeat;
+  isolation: isolate;
+}
+
+.start-footer::after,
+.start-footer::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.start-footer::before {
+  opacity: 0.42;
+  background:
+    linear-gradient(180deg, rgb(255 196 170 / 0.2), transparent 38%, rgb(35 10 8 / 0.36)),
+    linear-gradient(90deg, rgb(35 10 8 / 0.24), transparent 18% 82%, rgb(35 10 8 / 0.28));
+}
+
+.start-footer::after {
+  opacity: 0.55;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 220 196 / 0.08) 0 1px, transparent 1px 56px, rgb(23 7 5 / 0.16) 57px 59px, transparent 60px 112px),
+    repeating-linear-gradient(0deg, rgb(29 8 6 / 0.16) 0 1px, transparent 1px 5px);
+  mix-blend-mode: multiply;
+}
+
+.is-birthday .start-footer {
+  color: white;
+  background: #d98b00;
+}
+
+.is-birthday .start-footer::before {
+  opacity: 1;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 62px, rgb(255 235 159 / 0.055) 63px 66px),
+    repeating-radial-gradient(ellipse at 60% 34%, rgb(89 47 3 / 0.11) 0 1px, transparent 2px 10px),
+    linear-gradient(180deg, rgb(238 158 9 / 0.96), rgb(210 128 0 / 0.98));
+}
+
+.is-birthday .start-footer::after {
+  opacity: 0.24;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgb(102 55 0 / 0.08) 5px 6px),
+    linear-gradient(90deg, rgb(117 61 0 / 0.12), transparent 18% 82%, rgb(117 61 0 / 0.12));
+}
+
+.start-footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.1vw, 1.2rem);
+  font-size: clamp(0.74rem, 1.22vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.35);
+}
+
+.start-footer strong {
+  padding: 0.42em 0.72em;
+  color: #4e6f8a;
+  background: #edf5fa;
+  border-radius: 0.12rem;
+  box-shadow: none;
+  letter-spacing: 0.2em;
+  text-shadow: none;
+}
+
+.welcome-screen {
+  display: grid;
+  grid-template-rows: 9.5dvh 14.7dvh minmax(0, 1fr) 12.8dvh 2dvh;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--walnut-deep);
+}
+
+.resort-bar,
+.guest-bar {
+  position: relative;
+  isolation: isolate;
+}
+
+.resort-bar::before,
+.guest-bar::before,
+.wood-trim::before,
+.service-nav::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.resort-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 clamp(2rem, 4.5vw, 5.4rem) clamp(1rem, 2.1vh, 1.45rem);
+  border-bottom: clamp(2px, 0.28vh, 4px) solid var(--gold);
+  background: var(--teal) url("../images/main-header-fabric.png") center / cover no-repeat;
+}
+
+.resort-bar::before {
+  opacity: 0.32;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.08), transparent 42%, rgb(0 39 48 / 0.22)),
+    linear-gradient(90deg, rgb(0 42 50 / 0.18), transparent 18% 82%, rgb(0 42 50 / 0.16));
+  mix-blend-mode: multiply;
+}
+
+.resort-name {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.45rem, 0.7vw, 0.9rem);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+  white-space: nowrap;
+}
+
+.resort-name span,
+.room-number {
+  margin: 0;
+  font-size: clamp(0.66rem, 0.86vw, 1.03rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+.resort-name strong {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.58vw, 1.9rem);
+  letter-spacing: 0.035em;
+  line-height: 1;
+}
+
+.room-number {
+  padding-right: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.guest-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.65rem, 1.35vh, 1rem) clamp(2rem, 4.65vw, 5.6rem);
+  background: var(--walnut) url("../images/main-guest-wood.png") center / cover no-repeat;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.45);
+}
+
+.guest-bar::before {
+  opacity: 0.36;
+  background:
+    linear-gradient(180deg, rgb(95 42 13 / 0.04), rgb(24 9 3 / 0.34)),
+    linear-gradient(90deg, rgb(28 10 3 / 0.26), transparent 18% 82%, rgb(28 10 3 / 0.22));
+  mix-blend-mode: multiply;
+}
+
+.guest-block,
+.conditions-primary {
+  display: flex;
+  align-items: center;
+}
+
+.guest-block {
+  gap: clamp(0.8rem, 1.4vw, 1.7rem);
+}
+
+.member-badge {
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: center;
+  gap: clamp(0.14rem, 0.3dvh, 0.24rem);
+  color: #f7f1d8;
+}
+
+.member-badge span {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(-1.4rem, -1.25vw, -0.75rem);
+}
+
+.member-mark {
+  width: clamp(3.5rem, 5.3vw, 6.35rem);
+  height: auto;
+  display: block;
+}
+
+.guest-copy p,
+.guest-copy h1 {
+  margin: 0;
+}
+
+.guest-copy p {
+  margin-bottom: 0.12em;
+  font-size: clamp(0.82rem, 1.38vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.guest-copy h1 {
+  font-size: clamp(1.75rem, 3vw, 3.65rem);
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+}
+
+.conditions {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+.conditions-primary {
+  gap: clamp(0.55rem, 1.2vw, 1.45rem);
+  font-size: clamp(1.5rem, 2.55vw, 3.08rem);
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.weather-icon {
+  display: inline-grid;
+  width: 1.05em;
+  place-items: center;
+}
+
+.weather-icon svg {
+  display: block;
+  width: 1.05em;
+  height: 1.05em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.current-date {
+  margin-top: 0.32em;
+  font-size: clamp(0.72rem, 1.47vw, 1.78rem);
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.resort-view {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-bottom: clamp(2px, 0.32vh, 4px) solid var(--walnut-deep);
+  background: #91c9e6;
+  pointer-events: none;
+  user-select: none;
+}
+
+.resort-view::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(255 247 216 / 0.06), transparent 32%, rgb(29 65 73 / 0.04));
+}
+
+.hero-video-stack,
+.resort-view video,
+.resort-view img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video-stack {
+  position: relative;
+  background: #91c9e6 url("../images/beach-club-hero.jpg") center / cover no-repeat;
+}
+
+.resort-view video,
+.resort-view img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  background: #91c9e6 url("../images/beach-club-hero.jpg") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.hero-video-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1400ms ease-in-out;
+  will-change: opacity;
+}
+
+body[data-active-hero-video="day"] [data-hero-video="day"],
+body[data-active-hero-video="night"] [data-hero-video="night"] {
+  opacity: 1;
+}
+
+.resort-view video::-webkit-media-controls,
+.resort-view video::-webkit-media-controls-enclosure,
+.resort-view video::-webkit-media-controls-panel,
+.resort-view video::-webkit-media-controls-overlay-play-button,
+.resort-view video::-webkit-media-controls-start-playback-button,
+.resort-view video::-webkit-media-controls-play-button,
+.resort-view video::-webkit-media-controls-fullscreen-button,
+.resort-view video::-webkit-media-controls-toggle-closed-captions-button,
+.resort-view video::-webkit-media-controls-timeline,
+.resort-view video::-webkit-media-controls-current-time-display,
+.resort-view video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.resort-update-ticker {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: clamp(3.7rem, 7.2dvh, 5.2rem);
+  overflow: hidden;
+  color: var(--cream);
+  background:
+    linear-gradient(180deg, rgb(116 68 31 / 0.76), rgb(63 35 16 / 0.82)),
+    repeating-linear-gradient(90deg, transparent 0 96px, rgb(255 223 170 / 0.04) 98px 101px);
+  border-top: 2px solid rgb(246 215 144 / 0.28);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 -0.4rem 1rem rgb(0 0 0 / 0.28);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+body[data-hero-mode="night"] .resort-update-ticker {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resort-update-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.resort-update-track p {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin: 0;
+  padding-inline: clamp(2.5rem, 6vw, 6rem);
+  font-size: clamp(1rem, 1.45vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.45);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  animation: resort-update-marquee 72s linear infinite;
+  will-change: transform;
+}
+
+.resort-update-track p:nth-child(2) {
+  display: none;
+}
+
+@keyframes resort-update-marquee {
+  from {
+    transform: translate(0, -50%);
+  }
+
+  to {
+    transform: translate(calc(-100vw - 100%), -50%);
+  }
+}
+
+.service-nav {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  overflow: hidden;
+  color: var(--nav-brown);
+  background: var(--sand);
+}
+
+.service-nav::before {
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 0.14), transparent 18% 79%, rgb(125 91 40 / 0.08)),
+    repeating-linear-gradient(90deg, transparent 0 9.5%, rgb(120 91 42 / 0.06) 9.7% 10.2%, transparent 10.4% 19.5%),
+    repeating-linear-gradient(0deg, rgb(255 250 215 / 0.15) 0 46%, rgb(130 103 59 / 0.05) 47% 50%, transparent 51% 100%);
+}
+
+.service-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.65rem, 1.1vw, 1.3rem);
+  min-width: 0;
+  padding: 0.65rem clamp(0.3rem, 1.1vw, 1.3rem);
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.service-link:hover,
+.service-link:focus-visible {
+  color: var(--active);
+  background: rgb(255 255 255 / 0.16);
+  outline: none;
+}
+
+.service-link:active {
+  transform: translateY(1px);
+}
+
+.service-link.is-active {
+  color: var(--active);
+}
+
+.service-link svg {
+  width: clamp(2.5rem, 4vw, 4.8rem);
+  max-height: 60%;
+  flex: 0 0 auto;
+  fill: currentColor;
+  stroke: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.service-link svg path,
+.service-link svg circle,
+.service-link svg rect {
+  vector-effect: non-scaling-stroke;
+}
+
+.service-link svg.icon-outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+}
+
+.service-link .cast-icon {
+  stroke-width: 3.25;
+}
+
+.service-link span {
+  font-size: clamp(0.58rem, 0.92vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.wood-trim {
+  position: relative;
+  z-index: 0;
+  border-top: 2px solid #714621;
+  background: #43200b;
+}
+
+.wood-trim::before {
+  opacity: 0.96;
+  background:
+    repeating-linear-gradient(0deg, rgb(28 11 4 / 0.2) 0 1px, transparent 1px 4px, rgb(180 104 45 / 0.06) 4px 5px, transparent 5px 9px),
+    repeating-linear-gradient(2deg, transparent 0 16px, rgb(255 190 105 / 0.04) 17px 18px, transparent 19px 38px, rgb(27 10 3 / 0.13) 39px 40px),
+    radial-gradient(ellipse at 15% 36%, rgb(135 77 34 / 0.36), transparent 30%),
+    radial-gradient(ellipse at 56% 62%, rgb(90 45 17 / 0.34), transparent 36%),
+    radial-gradient(ellipse at 88% 42%, rgb(43 18 6 / 0.34), transparent 34%),
+    linear-gradient(180deg, #5c3013 0%, #4f270f 42%, #361808 100%);
+  mix-blend-mode: normal;
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .welcome-screen {
+    grid-template-rows: 9dvh 23dvh 50dvh 16dvh 2dvh;
+  }
+
+  .resort-bar {
+    min-height: 0;
+  }
+
+  .guest-bar {
+    gap: 1.4rem;
+    min-height: 0;
+  }
+
+  .service-nav {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .welcome-screen {
+    grid-template-rows: 9dvh 25dvh 47dvh 17dvh 2dvh;
+  }
+
+  .resort-bar {
+    align-items: center;
+    min-height: 0;
+    padding: 0.55rem 1rem;
+  }
+
+  .resort-name {
+    display: grid;
+    gap: 0;
+  }
+
+  .resort-name span:last-child {
+    display: none;
+  }
+
+  .resort-name strong {
+    font-size: clamp(1rem, 5vw, 1.45rem);
+  }
+
+  .resort-name span,
+  .room-number {
+    font-size: 0.58rem;
+  }
+
+  .guest-bar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: clamp(0.45rem, 1.4dvh, 0.85rem);
+    padding: clamp(0.55rem, 1.5dvh, 0.9rem) 1.2rem;
+    overflow: hidden;
+  }
+
+  .member-mark {
+    width: 3.6rem;
+  }
+
+  .conditions {
+    align-items: flex-start;
+    padding-top: clamp(0.4rem, 1dvh, 0.7rem);
+    border-top: 1px solid rgb(247 241 216 / 0.24);
+  }
+
+  .conditions-primary {
+    width: 100%;
+    justify-content: space-between;
+    font-size: clamp(1.25rem, 7vw, 2rem);
+  }
+
+  .current-date {
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+  }
+
+  .hero-video-stack,
+  .resort-view video,
+  .resort-view img {
+    object-position: 44% 50%;
+  }
+
+  .service-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .service-link {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-inline: 0.15rem;
+    text-align: center;
+  }
+
+  .service-link svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .service-link span {
+    font-size: clamp(0.42rem, 1.8vw, 0.56rem);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

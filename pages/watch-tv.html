@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#087f90" />
+    <meta name="description" content="Resort television channel guide." />
+    <title>Watch TV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/watch-tv.css" />
+    <script src="../assets/js/watch-tv.js" defer></script>
+  </head>
+  <body>
+    <main class="watch-screen">
+      <header class="watch-header" aria-label="Resort and room information">
+        <a class="resort-brand" href="../index.html" aria-label="Return to welcome screen">
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </a>
+        <p class="room-number">Room <span data-room>516</span></p>
+      </header>
+
+      <section class="watch-title-bar" aria-labelledby="watch-title">
+        <svg class="watch-icon" viewBox="0 0 64 58" aria-hidden="true">
+          <rect x="3" y="4" width="58" height="38" rx="4" />
+          <path d="M28 42h8v7h12a3 3 0 0 1 3 3v1H13v-1a3 3 0 0 1 3-3h12v-7Z" />
+        </svg>
+        <h1 id="watch-title">Watch TV</h1>
+      </section>
+
+      <section class="guide-shell" aria-label="Current television schedule">
+        <div class="guide-grid">
+          <div class="guide-heading date-heading" data-guide-date>Loading date</div>
+          <div class="guide-heading is-now" data-time-slot>--:--</div>
+          <div class="guide-heading" data-time-slot>--:--</div>
+          <div class="guide-heading" data-time-slot>--:--</div>
+          <div class="guide-heading" data-time-slot>--:--</div>
+
+          <div class="channel" data-watch-tv-link="67"><span>67</span><strong>Disney<br />Company Clips</strong></div>
+          <button class="program span-four" data-watch-tv-link="67" type="button">Disney Company Clips</button>
+
+          <div class="channel" data-watch-tv-link="68"><span>68</span><strong>Disney<br />Events 5</strong></div>
+          <button class="program span-two" data-watch-tv-link="68" type="button">Disney Special Events</button>
+          <button class="program span-two" data-watch-tv-link="68" type="button">Disney Special Events</button>
+
+          <div class="channel" data-watch-tv-link="69"><span>69</span><strong>Disney<br />Events 6</strong></div>
+          <button class="program span-two" data-watch-tv-link="69" type="button">Disney Special Events</button>
+          <button class="program span-two" data-watch-tv-link="69" type="button">Disney Special Events</button>
+
+          <div class="channel featured-channel" data-watch-tv-link="2"><span>2</span><strong>Walt Disney World</strong></div>
+          <button class="program featured-program span-four is-selected" data-watch-tv-link="2" type="button">
+            <strong>Can’t-Miss Magic</strong>
+            <span data-featured-time>Current program</span>
+            <small>Sit back and enjoy this whirlwind tour of The Most Magical Place on Earth.</small>
+          </button>
+
+          <div class="channel disney-plus-channel" data-watch-tv-link="1"><span>1</span><strong>Disney+</strong></div>
+          <button class="program span-four" data-watch-tv-link="1" type="button">Taste of Disney+</button>
+
+          <div class="channel" data-watch-tv-link="3"><span>3</span><strong>Disney Channel</strong></div>
+          <button class="program span-two" data-watch-tv-link="3" type="button">Big City Greens</button>
+          <button class="program" data-watch-tv-link="3" type="button">Marvel’s Spidey</button>
+          <button class="program" data-watch-tv-link="3" type="button">Bluey</button>
+
+          <div class="channel" data-watch-tv-link="4"><span>4</span><strong>Disney Junior</strong></div>
+          <button class="program" data-watch-tv-link="4" type="button">SuperKitties</button>
+          <button class="program" data-watch-tv-link="4" type="button">Mickey Mouse Funhouse</button>
+          <button class="program" data-watch-tv-link="4" type="button">Kiya &amp; the Kimoja Heroes</button>
+          <button class="program" data-watch-tv-link="4" type="button">Bluey</button>
+
+          <div class="channel" data-watch-tv-link="5"><span>5</span><strong>Disney XD</strong></div>
+          <button class="program span-two" data-watch-tv-link="5" type="button">The Owl House</button>
+          <button class="program span-two" data-watch-tv-link="5" type="button">DuckTales</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#047989" />
+    <meta
+      name="description"
+      content="A responsive resort television welcome-screen concept."
+    />
+    <title>Beach Club Resort Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="start-overlay" data-start-overlay role="button" tabindex="0" aria-label="Press select on your remote to get started">
+      <header class="start-header" aria-label="Resort welcome header">
+        <div class="start-resort-name" data-default-start-header>
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </div>
+        <div class="birthday-resort-name" data-birthday-start-header hidden>
+          <svg viewBox="0 0 54 54" aria-hidden="true">
+            <path d="M10 45c3.8-18.5 9.7-30.5 17-36 7.3 5.5 13.2 17.5 17 36" />
+          </svg>
+          <span class="birthday-resort-copy">
+            <strong>Aulani</strong>
+            <small>A Disney Resort &amp; Spa</small>
+          </span>
+        </div>
+      </header>
+
+      <section class="start-welcome" aria-label="Welcome message">
+        <p data-greeting>Welcome Home</p>
+        <h1 data-family>Nelson Family</h1>
+        <div class="start-member-badge">
+          <div class="start-member-emblem" data-default-member-mark>
+            <img src="assets/images/member-logo.jpeg" alt="Member globe emblem" />
+            <span>Member</span>
+          </div>
+          <img
+            class="birthday-cake-mark"
+            data-birthday-mark
+            src="assets/images/birthday-cake.svg"
+            alt="Birthday cake"
+            hidden
+          />
+        </div>
+      </section>
+
+      <footer class="start-footer" aria-label="Start instructions">
+        <p><span>Press</span> <strong>Select</strong> <span>on your remote to get started</span></p>
+      </footer>
+    </div>
+
+    <main class="welcome-screen">
+      <header class="resort-bar" aria-label="Resort and room information">
+        <div class="resort-name" aria-label="Disney's Beach Club Resort">
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </div>
+        <p class="room-number">Room <span data-room>516</span></p>
+      </header>
+
+      <section class="guest-bar" aria-label="Guest, weather, and time information">
+        <div class="guest-block">
+          <div class="member-badge">
+            <img class="member-mark" src="assets/images/member-logo-white.png" alt="Member globe emblem" />
+            <span>Member</span>
+          </div>
+          <div class="guest-copy">
+            <p data-greeting>Welcome Home</p>
+            <h1 data-family>Nelson Family</h1>
+          </div>
+        </div>
+
+        <div class="conditions" aria-live="polite">
+          <div class="conditions-primary">
+            <span class="weather-icon" data-weather-icon aria-hidden="true"></span>
+            <span class="temperature" data-temperature>72°F</span>
+            <time class="current-time" data-time datetime="15:28">3:28 PM</time>
+          </div>
+          <time class="current-date" data-date datetime="2025-07-23">
+            Wednesday, July 23rd, 2025
+          </time>
+        </div>
+      </section>
+
+      <section class="resort-view" aria-label="Beach Club Resort waterfront view">
+        <div class="hero-video-stack" aria-label="Beach Club Resort waterfront view with ambient motion">
+          <video
+            class="hero-video-layer"
+            data-hero-video="day"
+            autoplay
+            muted
+            loop
+            playsinline
+            disablepictureinpicture
+            disableremoteplayback
+            controlslist="nodownload nofullscreen noremoteplayback"
+            preload="auto"
+            poster="assets/images/beach-club-hero.jpg"
+          ></video>
+          <video
+            class="hero-video-layer"
+            data-hero-video="night"
+            autoplay
+            muted
+            loop
+            playsinline
+            disablepictureinpicture
+            disableremoteplayback
+            controlslist="nodownload nofullscreen noremoteplayback"
+            preload="metadata"
+            poster="assets/images/beach-club-hero.jpg"
+          ></video>
+        </div>
+        <div class="resort-update-ticker" aria-live="polite">
+          <div class="resort-update-track">
+            <p data-resort-update-message></p>
+            <p data-resort-update-message-clone aria-hidden="true"></p>
+          </div>
+        </div>
+      </section>
+
+      <nav class="service-nav" aria-label="Television services">
+        <a class="service-link" href="pages/watch-tv.html" aria-current="page">
+          <svg class="icon-solid tv-icon" viewBox="0 0 64 58" aria-hidden="true">
+            <rect x="3" y="4" width="58" height="38" rx="4" />
+            <path d="M28 42h8v7h12a3 3 0 0 1 3 3v1H13v-1a3 3 0 0 1 3-3h12v-7Z" />
+          </svg>
+          <span>Watch<br />TV</span>
+        </a>
+        <a class="service-link" href="pages/disney-on-demand.html">
+          <svg class="icon-solid" viewBox="0 0 64 58" aria-hidden="true">
+            <defs>
+              <mask id="play-cutout">
+                <rect width="64" height="58" fill="white" />
+                <path d="m25 27 15 9-15 9Z" fill="black" />
+              </mask>
+            </defs>
+            <g mask="url(#play-cutout)">
+              <circle cx="18" cy="15" r="12" />
+              <circle cx="46" cy="15" r="12" />
+              <circle cx="32" cy="36" r="20" />
+            </g>
+          </svg>
+          <span>Disney+ &amp;<br />On Demand</span>
+        </a>
+        <a class="service-link" href="pages/connect-device.html">
+          <svg class="icon-outline cast-icon" viewBox="0 0 64 58" aria-hidden="true">
+            <path d="M11 42a5 5 0 0 1 5 5" />
+            <path d="M11 34a13 13 0 0 1 13 13" />
+            <path d="M11 26a21 21 0 0 1 21 21" />
+            <path d="M11 18v-6h43v35H40" />
+          </svg>
+          <span>Connect<br />My Device</span>
+        </a>
+        <a class="service-link" href="pages/aulani.html">
+          <svg class="icon-solid bell-icon" viewBox="0 0 64 58" aria-hidden="true">
+            <path d="M9 43h46l-3.5 7H12.5L9 43Z" />
+            <path d="M14 39h36c-1.5-12.5-7.8-19-18-19s-16.5 6.5-18 19Z" />
+            <rect x="28" y="13" width="8" height="6" rx="2" />
+            <circle cx="32" cy="9" r="4" />
+          </svg>
+          <span>Hotel<br />Services</span>
+        </a>
+        <a class="service-link" href="pages/parks-and-more.html">
+          <svg viewBox="0 0 64 58" aria-hidden="true">
+            <path d="M5 53V39l6 4V28l7 7V17l6 9 8-21 8 21 6-9v18l7-7v15l6-4v14H5Z" />
+            <path d="M27 53V39h10v14" />
+          </svg>
+          <span>Parks<br />&amp; More</span>
+        </a>
+      </nav>
+
+      <footer class="wood-trim" aria-hidden="true"></footer>
+      <audio
+        data-background-music
+        src="assets/media/background-music.mp3"
+        loop
+        preload="auto"
+        aria-hidden="true"
+      ></audio>
+    </main>
+    <noscript>This welcome screen requires JavaScript for live time and weather.</noscript>
+  </body>
+</html>

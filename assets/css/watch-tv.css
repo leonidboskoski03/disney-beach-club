@@ -1,0 +1,289 @@
+:root {
+  --teal: #087f90;
+  --gold: #d6aa52;
+  --cream: #f2eee3;
+  --navy: #123d63;
+  --paper: #ece9e1;
+  --line: #bcc3ca;
+  --channel: #929daa;
+  --selected: #b9090d;
+  --ink: #505965;
+  --sans: "Montserrat", "Trebuchet MS", sans-serif;
+  --serif: "Cinzel", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #142529;
+}
+
+body { color: var(--ink); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+
+.watch-screen {
+  display: grid;
+  grid-template-rows: 7.6dvh 10.8dvh minmax(0, 1fr);
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.watch-header,
+.watch-title-bar {
+  position: relative;
+  isolation: isolate;
+}
+
+.watch-header::before,
+.watch-title-bar::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.watch-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: clamp(2rem, 4.2vw, 5rem);
+  color: var(--cream);
+  border-bottom: clamp(0.18rem, 0.28vw, 0.35rem) solid #bd7825;
+  background: #5b2a13 url("../images/main-guest-wood.png") center / cover no-repeat;
+  box-shadow: 0 0.3rem 0.7rem rgb(0 0 0 / 0.28);
+}
+
+.watch-header::before {
+  opacity: 0.36;
+  background:
+    linear-gradient(180deg, rgb(95 42 13 / 0.04), rgb(24 9 3 / 0.34)),
+    linear-gradient(90deg, rgb(28 10 3 / 0.26), transparent 18% 82%, rgb(28 10 3 / 0.22));
+  mix-blend-mode: multiply;
+}
+
+.resort-brand {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.45rem, 0.72vw, 0.85rem);
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.45);
+  white-space: nowrap;
+}
+
+.resort-brand span,
+.room-number {
+  margin: 0;
+  font-size: clamp(0.62rem, 0.92vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.resort-brand strong {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.65vw, 1.95rem);
+  line-height: 1;
+  letter-spacing: 0.055em;
+}
+
+.room-number {
+  color: var(--cream);
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.45);
+  white-space: nowrap;
+}
+
+.watch-title-bar {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 1.3vw, 1.55rem);
+  padding-inline: clamp(2rem, 4.2vw, 5rem);
+  color: var(--cream);
+  border-bottom: 2px solid rgb(2 64 74 / 0.54);
+  background: var(--teal) url("../images/main-header-fabric.png") center / cover no-repeat;
+}
+
+.watch-title-bar::before {
+  opacity: 0.32;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.07), transparent 42%, rgb(0 39 48 / 0.22)),
+    linear-gradient(90deg, rgb(0 42 50 / 0.18), transparent 18% 82%, rgb(0 42 50 / 0.16));
+  mix-blend-mode: multiply;
+}
+
+.watch-icon {
+  width: clamp(2.7rem, 3.8vw, 4.5rem);
+  height: clamp(2.45rem, 3.5vw, 4.1rem);
+  fill: currentColor;
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.2));
+}
+
+.watch-title-bar h1 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.65vw, 3.15rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgb(0 0 0 / 0.25);
+}
+
+.guide-shell {
+  min-height: 0;
+  padding: clamp(1rem, 2.2dvh, 1.65rem) clamp(1.5rem, 4.8vw, 5.8rem) clamp(0.8rem, 1.7dvh, 1.25rem);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgb(255 255 255 / 0.42), transparent 52%),
+    var(--paper);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: clamp(10.5rem, 17vw, 20.5rem) repeat(4, minmax(0, 1fr));
+  grid-template-rows: 7% 10% 10% 10% 23% 10% 10% 10% 10%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid #a9b2ba;
+  background: #d4d8dc;
+  box-shadow: 0 0.45rem 1rem rgb(53 49 42 / 0.2);
+}
+
+.guide-heading {
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(0.65rem, 1.2vw, 1.4rem);
+  color: white;
+  background: linear-gradient(180deg, #174d79, #123b60);
+  border-right: 2px solid rgb(222 231 238 / 0.72);
+  font-size: clamp(0.7rem, 1.02vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.guide-heading.is-now {
+  color: #ffe1a0;
+  background: linear-gradient(180deg, #25658c, #174b73);
+  box-shadow: inset 0 -4px 0 var(--gold);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: clamp(1.8rem, 2.6vw, 3.1rem) minmax(0, 1fr);
+  align-items: center;
+  padding: 0.25rem clamp(0.45rem, 0.8vw, 0.9rem);
+  color: white;
+  background: linear-gradient(110deg, #8793a1, #aab2bc);
+  border-top: 1px solid var(--line);
+  border-right: 2px solid #b7bec5;
+  overflow: hidden;
+}
+
+[data-watch-tv-link] {
+  cursor: pointer;
+}
+
+.channel[data-watch-tv-link]:hover,
+.channel[data-watch-tv-link]:focus-visible {
+  filter: brightness(1.04);
+}
+
+.channel[data-watch-tv-link]:focus-visible {
+  position: relative;
+  z-index: 2;
+  outline: 4px solid var(--gold);
+  outline-offset: -4px;
+}
+
+.channel span {
+  font-size: clamp(0.65rem, 0.92vw, 1.05rem);
+  font-weight: 600;
+}
+
+.channel strong {
+  font-size: clamp(0.55rem, 0.82vw, 0.98rem);
+  line-height: 1.02;
+  text-align: center;
+}
+
+.featured-channel {
+  background: linear-gradient(135deg, #9e070b, #bd1114);
+}
+
+.disney-plus-channel {
+  background: linear-gradient(135deg, #111b67, #233b9e);
+}
+
+.program {
+  min-width: 0;
+  padding: 0.35rem clamp(0.65rem, 1.1vw, 1.25rem);
+  overflow: hidden;
+  color: var(--ink);
+  background: rgb(242 242 239 / 0.96);
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  font: 600 clamp(0.58rem, 0.84vw, 1rem) / 1.2 var(--sans);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.program:hover,
+.program:focus-visible {
+  position: relative;
+  z-index: 2;
+  outline: 4px solid var(--gold);
+  outline-offset: -4px;
+  background: white;
+}
+
+.program.is-selected:not(.featured-program) {
+  color: white;
+  background: #9e0d12;
+}
+
+.span-two { grid-column: span 2; }
+.span-four { grid-column: span 4; }
+
+.featured-program {
+  display: grid;
+  align-content: center;
+  gap: clamp(0.2rem, 0.55dvh, 0.45rem);
+  padding-inline: clamp(1rem, 1.8vw, 2rem);
+  color: white;
+  background:
+    linear-gradient(100deg, rgb(111 0 4 / 0.12), transparent 40%),
+    linear-gradient(135deg, #a90005, #c71316);
+  text-shadow: 0 2px 2px rgb(0 0 0 / 0.24);
+  white-space: normal;
+}
+
+.featured-program > strong {
+  font-size: clamp(0.78rem, 1.12vw, 1.35rem);
+}
+
+.featured-program > span {
+  font-size: clamp(0.62rem, 0.88vw, 1.05rem);
+}
+
+.featured-program > small {
+  font-size: clamp(0.55rem, 0.78vw, 0.92rem);
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .watch-screen { grid-template-rows: 8.5dvh 11.5dvh minmax(0, 1fr); }
+  .guide-shell { padding-inline: 1rem; }
+  .guide-grid { grid-template-columns: 8rem repeat(4, minmax(0, 1fr)); }
+  .resort-brand span { display: none; }
+}

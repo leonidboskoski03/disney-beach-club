@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4c2517" />
+    <meta
+      name="description"
+      content="A responsive Aulani-style resort television menu screen."
+    />
+    <title>At Aulani Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/aulani.css" />
+    <script src="../assets/js/aulani.js" defer></script>
+  </head>
+  <body>
+    <main class="aulani-screen">
+      <header class="aulani-topbar" aria-label="Resort and room information">
+        <a class="aulani-brand" href="../index.html" aria-label="Return to welcome screen">
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </a>
+        <p class="aulani-room">Room <span data-room>516</span></p>
+      </header>
+
+      <section class="aulani-section-title" aria-label="Current section">
+        <svg class="aulani-mark" viewBox="0 0 54 54" aria-hidden="true">
+          <path d="M10 45c3.8-18.5 9.7-30.5 17-36 7.3 5.5 13.2 17.5 17 36" />
+        </svg>
+        <h1>At Aulani Resort</h1>
+      </section>
+
+      <section class="aulani-card-grid" aria-label="Aulani resort categories">
+        <a class="aulani-card is-active" href="around-the-island.html">
+          <span class="card-image card-image-resort"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <rect x="11" y="14" width="26" height="24" rx="3" />
+                <path d="M17 10v8M31 10v8M11 21h26M18 29h12" />
+              </svg>
+            </span>
+            <span>Daily ‘Iwa</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#dining">
+          <span class="card-image card-image-dining"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M16 9v30M11 9v11c0 4 2 7 5 7s5-3 5-7V9M32 9v30M32 9c5 4 7 9 7 16 0 5-3 8-7 8" />
+              </svg>
+            </span>
+            <span>Dining</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#shops">
+          <span class="card-image card-image-shops"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M13 21h22l-2 18H15l-2-18Z" />
+                <path d="M19 21v-4a5 5 0 0 1 10 0v4" />
+              </svg>
+            </span>
+            <span>Shops</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#pools">
+          <span class="card-image card-image-pools"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="22" r="7" />
+                <path d="M15 38c4-5 14-5 18 0M13 30c7 4 15 4 22 0M19 16l-5-5M29 16l5-5" />
+              </svg>
+            </span>
+            <span>Pools</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#beach-activities">
+          <span class="card-image card-image-beach"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <rect x="9" y="16" width="30" height="20" rx="7" />
+                <path d="M19 36c2 4 8 4 10 0M17 24h9a4 4 0 0 1 0 8h-5" />
+              </svg>
+            </span>
+            <span>Beach Activities</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#entertainment">
+          <span class="card-image card-image-entertainment"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M14 15c5 3 10 3 15 0v10c0 8-4 12-8 14-4-2-7-6-7-14V15Z" />
+                <path d="M28 17c3-2 6-2 9-4v10c0 7-3 11-7 13M18 25h1M26 25h1M18 32c3 2 6 2 9 0" />
+              </svg>
+            </span>
+            <span>Entertainment &amp; Activities</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#spa-fitness">
+          <span class="card-image card-image-spa"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M27 12a4 4 0 1 0-4 4 4 4 0 0 0 4-4ZM22 19l-5 8 7 4 6-7 6 1M24 31l-4 8M29 25l4 14" />
+              </svg>
+            </span>
+            <span>Spa &amp; Fitness</span>
+          </span>
+        </a>
+
+        <a class="aulani-card" href="#guest-services">
+          <span class="card-image card-image-services"></span>
+          <span class="card-label">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="15" />
+                <path d="M24 21v12M24 15h.01" />
+              </svg>
+            </span>
+            <span>Guest Services</span>
+          </span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

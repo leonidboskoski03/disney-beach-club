@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#087f90" />
+    <meta name="description" content="Disney On Demand resort television library." />
+    <title>Disney On Demand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/disney-on-demand.css" />
+    <script src="../assets/js/disney-on-demand.js" defer></script>
+  </head>
+  <body>
+    <main class="demand-screen">
+      <header class="demand-header" aria-label="Resort and room information">
+        <a class="resort-brand" href="../index.html" aria-label="Return to welcome screen">
+          <span>Disney’s</span>
+          <strong>Beach Club</strong>
+          <span>Resort</span>
+        </a>
+        <p class="room-number">Room <span data-room>516</span></p>
+      </header>
+
+      <section class="demand-navigation" aria-labelledby="demand-title">
+        <div class="demand-title-row">
+          <svg class="demand-mark" viewBox="0 0 64 58" aria-hidden="true">
+            <defs>
+              <mask id="demand-play-cutout">
+                <rect width="64" height="58" fill="white" />
+                <path d="m25 27 15 9-15 9Z" fill="black" />
+              </mask>
+            </defs>
+            <g mask="url(#demand-play-cutout)">
+              <circle cx="18" cy="15" r="12" />
+              <circle cx="46" cy="15" r="12" />
+              <circle cx="32" cy="36" r="20" />
+            </g>
+          </svg>
+          <h1 id="demand-title">Disney On Demand</h1>
+        </div>
+
+        <nav class="category-list" aria-label="On Demand categories">
+          <span class="category is-active" aria-current="page">All</span>
+          <span class="category">Movies</span>
+          <span class="category">Disney Vacations</span>
+          <span class="category">Bedtime Stories</span>
+          <span class="category">Programs &amp; Events</span>
+          <span class="category">Disney Learning</span>
+        </nav>
+      </section>
+
+      <section class="poster-grid" aria-label="Disney On Demand programs">
+        <article class="poster-card is-selected" data-on-demand-link="cars"><img src="../assets/images/disney-on-demand/1.jpg" alt="Cars" /></article>
+        <article class="poster-card" data-on-demand-link="findingNemo"><img src="../assets/images/disney-on-demand/2.jpg" alt="Finding Nemo" /></article>
+        <article class="poster-card" data-on-demand-link="hercules"><img src="../assets/images/disney-on-demand/3.jpg" alt="Hercules" /></article>
+        <article class="poster-card" data-on-demand-link="hunchbackOfNotreDame"><img src="../assets/images/disney-on-demand/4.jpg" alt="The Hunchback of Notre Dame" /></article>
+        <article class="poster-card" data-on-demand-link="incredibles2"><img src="../assets/images/disney-on-demand/5.jpg" alt="Incredibles 2" /></article>
+        <article class="poster-card" data-on-demand-link="monstersInc"><img src="../assets/images/disney-on-demand/6.jpg" alt="Monsters, Inc." /></article>
+        <article class="poster-card" data-on-demand-link="ratatouille"><img src="../assets/images/disney-on-demand/7.jpg" alt="Ratatouille" /></article>
+        <article class="poster-card" data-on-demand-link="waltDisneyWorld"><img src="../assets/images/disney-on-demand/8.jpg" alt="Walt Disney World" /></article>
+        <article class="poster-card" data-on-demand-link="disneySprings"><img src="../assets/images/disney-on-demand/9.png" alt="Disney Springs" /></article>
+        <article class="poster-card" data-on-demand-link="disneyWaterParks"><img src="../assets/images/disney-on-demand/10.jpg" alt="Disney Water Parks" /></article>
+        <article class="poster-card" data-on-demand-link="disneyVacationClub"><img src="../assets/images/disney-on-demand/11.png" alt="Disney Vacation Club" /></article>
+        <article class="poster-card" data-on-demand-link="aulani"><img src="../assets/images/disney-on-demand/12.jpg" alt="Aulani Resort" /></article>
+      </section>
+    </main>
+  </body>
+</html>
