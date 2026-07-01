@@ -568,6 +568,8 @@ body[data-active-hero-video="night"] [data-hero-video="night"] {
   backdrop-filter: blur(1px);
   box-shadow: 0 -0.4rem 1rem rgb(0 0 0 / 0.28);
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateY(100%);
   transition: opacity 260ms ease, transform 260ms ease;
 }
@@ -682,8 +684,41 @@ body[data-hero-mode="night"] .resort-update-ticker {
   stroke-width: 4;
 }
 
-.service-link .cast-icon {
-  stroke-width: 3.25;
+.service-link svg.cast-icon {
+  stroke-width: 40;
+  stroke-linecap: butt;
+}
+
+.service-link svg.cast-icon .cast-lines path {
+  vector-effect: none;
+}
+
+.service-link svg.cast-icon .cast-origin {
+  fill: currentColor;
+  stroke: none;
+}
+
+.service-link svg.bell-icon {
+  stroke: currentColor;
+  stroke-width: 0.75;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+  shape-rendering: geometricPrecision;
+}
+
+.service-link svg.mickey-play-icon {
+  width: clamp(2.2rem, 3.45vw, 4.1rem);
+  height: auto;
+  aspect-ratio: 524 / 444;
+}
+
+.service-link .parks-castle-icon {
+  width: clamp(2.15rem, 3.1vw, 3.7rem);
+  height: clamp(2.4rem, 3.5vw, 4.1rem);
+  flex: 0 0 auto;
+  background-color: currentColor;
+  -webkit-mask: url("../images/parks-castle-white.png") center / contain no-repeat;
+  mask: url("../images/parks-castle-white.png") center / contain no-repeat;
 }
 
 .service-link span {

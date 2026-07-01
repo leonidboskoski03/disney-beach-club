@@ -131,14 +131,16 @@ a {
   mix-blend-mode: multiply;
 }
 
-.aulani-mark {
-  width: clamp(2.4rem, 3.8vw, 4.6rem);
-  height: clamp(2.4rem, 3.8vw, 4.6rem);
-  fill: none;
-  stroke: rgb(218 231 229 / 0.9);
-  stroke-linecap: round;
+.beach-club-bell {
+  width: clamp(1.8rem, 2.65vw, 3.1rem);
+  height: clamp(1.6rem, 2.4vw, 2.8rem);
+  flex: 0 0 auto;
+  fill: white;
+  stroke: white;
+  stroke-width: 0.75;
   stroke-linejoin: round;
-  stroke-width: 4;
+  paint-order: stroke fill;
+  shape-rendering: geometricPrecision;
   filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.35));
 }
 
@@ -148,7 +150,7 @@ a {
   font-size: clamp(1.45rem, 3.05vw, 3.7rem);
   font-weight: 600;
   letter-spacing: 0.055em;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: 0 2px 3px rgb(0 0 0 / 0.34);
 }
 
@@ -261,35 +263,35 @@ a {
 }
 
 .card-image-resort {
-  background-image: url("../images/aulani/1.png");
+  background-image: url("../images/aulani/1.jpeg");
 }
 
 .card-image-dining {
-  background-image: url("../images/aulani/2.png");
+  background-image: url("../images/aulani/2.jpeg");
 }
 
 .card-image-shops {
-  background-image: url("../images/aulani/3.png");
+  background-image: url("../images/aulani/3.jpeg");
 }
 
 .card-image-pools {
-  background-image: url("../images/aulani/4.png");
+  background-image: url("../images/aulani/4.jpeg");
 }
 
 .card-image-beach {
-  background-image: url("../images/aulani/5.png");
+  background-image: url("../images/aulani/5.jpeg");
 }
 
 .card-image-entertainment {
-  background-image: url("../images/aulani/6.png");
+  background-image: url("../images/aulani/6.jpeg");
 }
 
 .card-image-spa {
-  background-image: url("../images/aulani/7.png");
+  background-image: url("../images/aulani/7.jpeg");
 }
 
 .card-image-services {
-  background-image: url("../images/aulani/8.png");
+  background-image: url("../images/aulani/8.jpeg");
 }
 
 .compass-mark {

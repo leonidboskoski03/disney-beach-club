@@ -32,6 +32,40 @@ const CONFIG = Object.freeze({
   }),
 });
 
+// const CONFIG = Object.freeze({
+//     locationName: "Tokyo, Japan",
+//     latitude: 35.6762,
+//     longitude: 139.6503,
+//     timeZone: "Asia/Tokyo",
+//     familyName: "Nelson Family",
+//     defaultGreeting: "Welcome Home",
+//     birthdayGreetings: Object.freeze({
+//         "06-28": Object.freeze({ greeting: "Happy Birthday", familyName: "Brenda", isBirthday: true }),
+//         "01-18": Object.freeze({ greeting: "Happy Birthday", familyName: "Roger", isBirthday: true }),
+//     }),
+//     roomNumber: "516",
+//     weatherRefreshMinutes: 15,
+//     weatherCacheKey: "resort-welcome-weather",
+//     sunScheduleCacheKey: "resort-welcome-sun-schedule",
+//     heroVideoCheckSeconds: 60,
+//     heroVideoTransitionMs: 1400,
+//     backgroundMusicVolume: 0.18,
+//     fallbackDayStartHour: 6,
+//     fallbackNightStartHour: 19,
+//     heroVideos: Object.freeze({
+//         day: "assets/media/day-loop-video.optimized.mp4",
+//         night: "assets/media/night-loop-video-new.optimized.mp4",
+//     }),
+//     resortUpdateDaysAhead: 2,
+//     // Set to "day" or "night" for manual testing, or keep null for real Japan time.
+//     // You can also test without editing this file by adding ?heroVideo=night to the URL.
+//     heroVideoModeOverride: null,
+//     fallbackWeather: Object.freeze({
+//         temperature: 77,
+//         weatherCode: 2,
+//     }),
+// });
+
 const elements = {
   families: [...document.querySelectorAll("[data-family]")],
   greetings: [...document.querySelectorAll("[data-greeting]")],
@@ -497,12 +531,41 @@ function initializeNavigation() {
   });
 }
 
+const EXPERIENCE_STARTED_KEY = "resort-welcome-started";
+
+function hasStartedExperience() {
+  try {
+    return sessionStorage.getItem(EXPERIENCE_STARTED_KEY) === "true";
+  } catch (error) {
+    console.warn("The experience state could not be read on this device.", error);
+    return false;
+  }
+}
+
+function rememberStartedExperience() {
+  try {
+    sessionStorage.setItem(EXPERIENCE_STARTED_KEY, "true");
+  } catch (error) {
+    console.warn("The experience state could not be saved on this device.", error);
+  }
+}
+
 function initializeBackgroundMusic() {
   const music = elements.backgroundMusic;
   const overlay = elements.startOverlay;
   if (!music || !overlay) return;
 
   music.volume = CONFIG.backgroundMusicVolume;
+
+  if (hasStartedExperience()) {
+    document.body.classList.add("is-started");
+    const resumedPlayback = music.play();
+    resumedPlayback?.catch((error) => {
+      console.warn("Background music could not resume after returning home.", error);
+    });
+    return;
+  }
+
   document.body.classList.remove("is-started");
 
   const validStartKeys = new Set([
@@ -541,6 +604,7 @@ function initializeBackgroundMusic() {
     if (playback) {
       playback
         .then(() => {
+          rememberStartedExperience();
           cleanup();
         })
         .catch((error) => {
