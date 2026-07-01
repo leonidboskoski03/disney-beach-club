@@ -99,40 +99,7 @@ a {
 }
 
 .birthday-resort-name {
-  display: flex;
-  align-items: center;
-  gap: clamp(0.5rem, 0.8vw, 0.9rem);
   color: #f7f1d8;
-  text-transform: uppercase;
-  text-shadow: 0 2px 3px rgb(0 0 0 / 0.34);
-}
-
-.birthday-resort-name svg {
-  width: clamp(2.1rem, 3vw, 3.6rem);
-  height: clamp(2.1rem, 3vw, 3.6rem);
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-width: 4;
-}
-
-.birthday-resort-copy {
-  display: grid;
-  justify-items: start;
-}
-
-.birthday-resort-copy strong {
-  font-family: var(--serif);
-  font-size: clamp(1rem, 1.55vw, 1.85rem);
-  letter-spacing: 0.18em;
-  line-height: 1;
-}
-
-.birthday-resort-copy small {
-  margin-top: 0.3em;
-  font-size: clamp(0.34rem, 0.5vw, 0.62rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 .start-welcome {
@@ -190,23 +157,6 @@ a {
   height: auto;
 }
 
-.is-birthday .start-welcome p,
-.is-birthday .start-welcome h1 {
-  color: #b65321;
-}
-
-.is-birthday .start-header {
-  background: #5b2a13 url("../images/main-guest-wood.png") center / cover no-repeat;
-}
-
-.is-birthday .start-header::before {
-  opacity: 0.36;
-  background:
-    linear-gradient(180deg, rgb(95 42 13 / 0.04), rgb(24 9 3 / 0.34)),
-    linear-gradient(90deg, rgb(28 10 3 / 0.26), transparent 18% 82%, rgb(28 10 3 / 0.22));
-  mix-blend-mode: multiply;
-}
-
 [hidden] {
   display: none !important;
 }
@@ -253,26 +203,6 @@ a {
     repeating-linear-gradient(90deg, rgb(255 220 196 / 0.08) 0 1px, transparent 1px 56px, rgb(23 7 5 / 0.16) 57px 59px, transparent 60px 112px),
     repeating-linear-gradient(0deg, rgb(29 8 6 / 0.16) 0 1px, transparent 1px 5px);
   mix-blend-mode: multiply;
-}
-
-.is-birthday .start-footer {
-  color: white;
-  background: #d98b00;
-}
-
-.is-birthday .start-footer::before {
-  opacity: 1;
-  background:
-    repeating-linear-gradient(90deg, transparent 0 62px, rgb(255 235 159 / 0.055) 63px 66px),
-    repeating-radial-gradient(ellipse at 60% 34%, rgb(89 47 3 / 0.11) 0 1px, transparent 2px 10px),
-    linear-gradient(180deg, rgb(238 158 9 / 0.96), rgb(210 128 0 / 0.98));
-}
-
-.is-birthday .start-footer::after {
-  opacity: 0.24;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 5px, rgb(102 55 0 / 0.08) 5px 6px),
-    linear-gradient(90deg, rgb(117 61 0 / 0.12), transparent 18% 82%, rgb(117 61 0 / 0.12));
 }
 
 .start-footer p {

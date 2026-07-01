@@ -147,10 +147,10 @@ a {
 .aulani-section-title h1 {
   margin: 0;
   color: rgb(222 235 233 / 0.96);
-  font-size: clamp(1.45rem, 3.05vw, 3.7rem);
+  font-size: clamp(1.25rem, 2.5vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.055em;
-  text-transform: none;
+  text-transform: uppercase;
   text-shadow: 0 2px 3px rgb(0 0 0 / 0.34);
 }
 
