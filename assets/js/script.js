@@ -32,40 +32,6 @@ const CONFIG = Object.freeze({
   }),
 });
 
-// const CONFIG = Object.freeze({
-//     locationName: "Tokyo, Japan",
-//     latitude: 35.6762,
-//     longitude: 139.6503,
-//     timeZone: "Asia/Tokyo",
-//     familyName: "Nelson Family",
-//     defaultGreeting: "Welcome Home",
-//     birthdayGreetings: Object.freeze({
-//         "06-28": Object.freeze({ greeting: "Happy Birthday", familyName: "Brenda", isBirthday: true }),
-//         "01-18": Object.freeze({ greeting: "Happy Birthday", familyName: "Roger", isBirthday: true }),
-//     }),
-//     roomNumber: "516",
-//     weatherRefreshMinutes: 15,
-//     weatherCacheKey: "resort-welcome-weather",
-//     sunScheduleCacheKey: "resort-welcome-sun-schedule",
-//     heroVideoCheckSeconds: 60,
-//     heroVideoTransitionMs: 1400,
-//     backgroundMusicVolume: 0.18,
-//     fallbackDayStartHour: 6,
-//     fallbackNightStartHour: 19,
-//     heroVideos: Object.freeze({
-//         day: "assets/media/day-loop-video.optimized.mp4",
-//         night: "assets/media/night-loop-video-new.optimized.mp4",
-//     }),
-//     resortUpdateDaysAhead: 2,
-//     // Set to "day" or "night" for manual testing, or keep null for real Japan time.
-//     // You can also test without editing this file by adding ?heroVideo=night to the URL.
-//     heroVideoModeOverride: null,
-//     fallbackWeather: Object.freeze({
-//         temperature: 77,
-//         weatherCode: 2,
-//     }),
-// });
-
 const elements = {
   families: [...document.querySelectorAll("[data-family]")],
   greetings: [...document.querySelectorAll("[data-greeting]")],
