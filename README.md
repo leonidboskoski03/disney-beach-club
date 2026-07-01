@@ -2,7 +2,7 @@
 
 This project is a fullscreen resort television interface created for the Nelson family. It displays a personalized welcome screen, Illinois time and weather, day/night background video, music, a TV guide, Disney On Demand links, resort information, and parks information.
 
-The project uses plain HTML, CSS, and JavaScript. There is no build process, package installation, database, account, or hosting service required.
+The project uses plain HTML, CSS, and JavaScript. There is no build process, project dependency installation, database, account, or hosting service required.
 
 ## Quick start
 
@@ -10,7 +10,7 @@ The project uses plain HTML, CSS, and JavaScript. There is no build process, pac
 
 - Windows, macOS, or Linux
 - A current version of Google Chrome, Microsoft Edge, Firefox, or Safari
-- Python 3 for the recommended local server
+- Node.js and npm (recommended), or Python 3, to run a local web server
 - Internet access for live weather, Google Fonts, and external Disney links
 
 ### Start on Windows
@@ -21,7 +21,7 @@ The project uses plain HTML, CSS, and JavaScript. There is no build process, pac
 4. Run:
 
    ```powershell
-   py -m http.server 8080
+   npx serve . -l 8080
    ```
 
 5. Open a browser and visit:
@@ -35,7 +35,23 @@ The project uses plain HTML, CSS, and JavaScript. There is no build process, pac
 
 Keep the PowerShell window open while the experience is running. To stop the local server, return to PowerShell and press Ctrl+C.
 
-If the `py` command is unavailable, install Python 3 and enable its “Add Python to PATH” option, then use `python -m http.server 8080`.
+The first run may ask permission to download the `serve` package. Enter `y` and press Enter. If the `npx` command is unavailable, install the current Node.js LTS release, reopen PowerShell, and run the command again.
+
+### Python alternative
+
+If Python 3 is already installed, the project can be started without `npx`. Open PowerShell in the project folder and run:
+
+```powershell
+py -m http.server 8080
+```
+
+Then open `http://localhost:8080`. On systems where `py` is unavailable but `python` works, use:
+
+```powershell
+python -m http.server 8080
+```
+
+Both server methods run the same project. `npx serve` is the recommended method, while Python is a convenient alternative. Only one server should be running at a time.
 
 > Do not open `index.html` directly by double-clicking it. Serving the folder through `http://localhost:8080` gives the browser the correct environment for media, weather requests, navigation, and local storage.
 
@@ -175,7 +191,19 @@ Internet access is required for:
 
 ### The page does not open
 
-Confirm that the PowerShell server is still running and that the browser address is exactly `http://localhost:8080`. If port 8080 is already in use, run `py -m http.server 8081` and open `http://localhost:8081` instead.
+Confirm that the PowerShell server is still running and that the browser address is exactly `http://localhost:8080`. If port 8080 is already in use, use another port:
+
+```powershell
+npx serve . -l 8081
+```
+
+or:
+
+```powershell
+py -m http.server 8081
+```
+
+Then open `http://localhost:8081`.
 
 ### Music does not play
 
