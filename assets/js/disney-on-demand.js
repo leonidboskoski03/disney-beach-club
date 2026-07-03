@@ -23,6 +23,10 @@ function openExternalLink(url) {
 
 const onDemandCards = [...document.querySelectorAll("[data-on-demand-link]")];
 
+function selectOnDemandCard(card) {
+  onDemandCards.forEach((item) => item.classList.toggle("is-selected", item === card));
+}
+
 onDemandCards.forEach((card) => {
   const url = ON_DEMAND_LINKS[card.dataset.onDemandLink];
 
@@ -34,6 +38,8 @@ onDemandCards.forEach((card) => {
 
   card.tabIndex = 0;
   card.setAttribute("role", "link");
+  card.addEventListener("mouseenter", () => selectOnDemandCard(card));
+  card.addEventListener("focus", () => selectOnDemandCard(card));
 
   card.addEventListener("click", () => openExternalLink(url));
   card.addEventListener("keydown", (event) => {

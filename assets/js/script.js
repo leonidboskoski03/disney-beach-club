@@ -15,7 +15,7 @@ const CONFIG = Object.freeze({
   sunScheduleCacheKey: "resort-welcome-sun-schedule",
   heroVideoCheckSeconds: 60,
   heroVideoTransitionMs: 1400,
-  backgroundMusicVolume: 0.18,
+  backgroundMusicVolume: 0.5,
   fallbackDayStartHour: 6,
   fallbackNightStartHour: 19,
   heroVideos: Object.freeze({
@@ -485,19 +485,34 @@ async function updateHeroVideo() {
 
 function initializeNavigation() {
   const links = [...document.querySelectorAll(".service-link")];
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      links.forEach((item) => {
-        item.classList.remove("is-active");
-        item.removeAttribute("aria-current");
-      });
-      link.classList.add("is-active");
-      link.setAttribute("aria-current", "page");
+
+  function selectLink(link) {
+    links.forEach((item) => {
+      item.classList.remove("is-active");
+      item.removeAttribute("aria-current");
     });
+    link.classList.add("is-active");
+    link.setAttribute("aria-current", "page");
+  }
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => selectLink(link));
+    link.addEventListener("focus", () => selectLink(link));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+
+    event.preventDefault();
+    const currentIndex = Math.max(0, links.indexOf(document.activeElement));
+    const direction = event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 1;
+    const nextIndex = (currentIndex + direction + links.length) % links.length;
+    links[nextIndex].focus();
   });
 }
 
 const EXPERIENCE_STARTED_KEY = "resort-welcome-started";
+const MUSIC_PLAYBACK_KEY = "resort-music-playback";
 
 function hasStartedExperience() {
   try {
@@ -516,12 +531,45 @@ function rememberStartedExperience() {
   }
 }
 
+function readMusicPlaybackState() {
+  try {
+    return JSON.parse(sessionStorage.getItem(MUSIC_PLAYBACK_KEY)) ?? null;
+  } catch (error) {
+    console.warn("The saved music position could not be read.", error);
+    return null;
+  }
+}
+
+function saveMusicPlaybackState(music) {
+  if (!Number.isFinite(music?.currentTime)) return;
+
+  try {
+    sessionStorage.setItem(
+      MUSIC_PLAYBACK_KEY,
+      JSON.stringify({ position: music.currentTime, savedAt: Date.now() }),
+    );
+  } catch (error) {
+    console.warn("The music position could not be saved.", error);
+  }
+}
+
+function restoreMusicPlaybackPosition(music) {
+  const state = readMusicPlaybackState();
+  if (!state || !Number.isFinite(Number(state.position)) || !music.duration) return;
+
+  const elapsed = Math.max(0, (Date.now() - Number(state.savedAt || Date.now())) / 1_000);
+  music.currentTime = (Number(state.position) + elapsed) % music.duration;
+}
+
 function initializeBackgroundMusic() {
   const music = elements.backgroundMusic;
   const overlay = elements.startOverlay;
   if (!music || !overlay) return;
 
   music.volume = CONFIG.backgroundMusicVolume;
+  music.addEventListener("loadedmetadata", () => restoreMusicPlaybackPosition(music), { once: true });
+  window.addEventListener("pagehide", () => saveMusicPlaybackState(music));
+  window.setInterval(() => saveMusicPlaybackState(music), 2_000);
 
   if (hasStartedExperience()) {
     document.body.classList.add("is-started");

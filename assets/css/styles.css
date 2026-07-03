@@ -646,9 +646,7 @@ body[data-hero-mode="night"] .resort-update-ticker {
   width: clamp(2.15rem, 3.1vw, 3.7rem);
   height: clamp(2.4rem, 3.5vw, 4.1rem);
   flex: 0 0 auto;
-  background-color: currentColor;
-  -webkit-mask: url("../images/parks-castle-white.png") center / contain no-repeat;
-  mask: url("../images/parks-castle-white.png") center / contain no-repeat;
+  object-fit: contain;
 }
 
 .service-link span {

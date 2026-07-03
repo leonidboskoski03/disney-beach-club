@@ -269,6 +269,14 @@ a { color: inherit; text-decoration: none; }
   white-space: normal;
 }
 
+.featured-program:hover,
+.featured-program:focus-visible {
+  color: white;
+  background:
+    linear-gradient(100deg, rgb(111 0 4 / 0.12), transparent 40%),
+    linear-gradient(135deg, #a90005, #c71316);
+}
+
 .featured-program > strong {
   font-size: clamp(0.78rem, 1.12vw, 1.35rem);
 }

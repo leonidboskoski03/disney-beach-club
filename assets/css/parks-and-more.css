@@ -159,6 +159,19 @@ a { color: inherit; text-decoration: none; }
   background: rgb(242 244 245 / 0.96);
   border: 2px solid rgb(116 117 111 / 0.18);
   box-shadow: 0 0.48rem 0.82rem rgb(57 47 35 / 0.25);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.park-card:hover,
+.park-card:focus-visible,
+.destination-card:hover,
+.destination-card:focus-visible,
+.park-card.is-selected,
+.destination-card.is-selected {
+  border-color: var(--selected);
+  box-shadow: 0 0.7rem 1.2rem rgb(57 47 35 / 0.34);
+  transform: translateY(-0.22rem) scale(1.015);
 }
 
 .park-card {
@@ -196,7 +209,8 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
 }
 
-.park-card.is-selected .park-copy {
+.park-card.is-selected .park-copy,
+.destination-card.is-selected > div {
   color: white;
   background: linear-gradient(135deg, #9f350f, var(--selected));
   text-shadow: 0 2px 2px rgb(0 0 0 / 0.28);
@@ -229,6 +243,13 @@ a { color: inherit; text-decoration: none; }
   min-height: 0;
   padding: 0.5rem 0.8rem;
   text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .park-card,
+  .destination-card {
+    transition: none;
+  }
 }
 
 @media (max-width: 900px) {
