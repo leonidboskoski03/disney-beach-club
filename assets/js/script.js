@@ -19,7 +19,7 @@ const CONFIG = Object.freeze({
   fallbackDayStartHour: 6,
   fallbackNightStartHour: 19,
   heroVideos: Object.freeze({
-    day: "assets/media/day-loop-video.optimized.mp4",
+    day: "assets/media/new-day-loop-video.optimized.mp4",
     night: "assets/media/night-loop-video-new.optimized.mp4",
   }),
   resortUpdateDaysAhead: 2,

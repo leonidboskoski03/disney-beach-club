@@ -173,7 +173,7 @@ The modes can be previewed manually:
 
 The local media files are:
 
-- `assets/media/day-loop-video.optimized.mp4`
+- `assets/media/new-day-loop-video.optimized.mp4`
 - `assets/media/night-loop-video-new.optimized.mp4`
 - `assets/media/background-music.mp3`
 
