@@ -60,6 +60,7 @@ Both server methods run the same project. `npx serve` is the recommended method,
 - The opening screen accepts a mouse click, touchscreen tap, Enter, Space, or a TV remote selection key represented by the browser as a key press.
 - Main-menu items open the individual resort screens.
 - Clicking the resort name in a secondary screen returns to the welcome screen.
+- Pressing Escape on a secondary screen returns to the welcome screen.
 - Watch TV and Disney On Demand entries open their configured websites in a new browser tab.
 - Arrow keys navigate selectable Watch TV and Disney On Demand entries.
 - The interface is designed for a 16:9 display, ideally 1920×1080, with browser zoom set to 100%.
